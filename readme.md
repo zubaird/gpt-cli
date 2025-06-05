@@ -1,7 +1,8 @@
-```markdown
 # 🧠 gpt-cli
 
-A minimal command-line assistant that streams responses from GPT-4 directly into your terminal — in plain text, in three structured parts, or as a runnable shell command.
+A minimal command-line assistant that streams responses from GPT-4 directly
+into your terminal — in plain text, in three structured parts, or as a
+runnable shell command.
 
 ## ✨ Features
 
@@ -13,8 +14,7 @@ A minimal command-line assistant that streams responses from GPT-4 directly into
 - Special `"command ..."` mode that extracts shell-ready commands
 - Optional clipboard copy using `pyperclip`
 - Built for GPT-4 (requires OpenAI API key)
-
----
+- Cost effective for quick tasks
 
 ## 🚀 Quick Start
 
@@ -45,14 +45,13 @@ pip install openai pyperclip
 export OPENAI_API_KEY=sk-...
 ```
 
-To make it persistent, add it to your shell config (`~/.bashrc`, `~/.zshrc`, etc.):
+To make it persistent, add it to your shell config
+(`~/.bashrc`, `~/.zshrc`, etc.):
 
 ```bash
 echo 'export OPENAI_API_KEY=sk-...' >> ~/.zshrc
 source ~/.zshrc
 ```
-
----
 
 ## 🖊️ Example Usage
 
@@ -97,8 +96,6 @@ Warning: Be careful with this command, it will permanently delete the specified 
 Warning about this warning: Not all dangerous commands are caught,
 so **always review before running**.
 
----
-
 ## 📂 Making the Script Executable
 
 If you want to run it as `gpt` globally:
@@ -110,11 +107,10 @@ ln -s $(pwd)/gpt ~/.local/bin/gpt
 
 Ensure `~/.local/bin` is in your `$PATH`.
 
----
-
 ## ⚙️ Shebang Flexibility
 
-Instead of hardcoding a specific virtual environment, you can use this **portable shebang** at the top of the `gpt` script:
+Instead of hardcoding a specific virtual environment, you can use this
+**portable shebang** at the top of the `gpt` script:
 
 ```python
 #!/usr/bin/env python3
@@ -122,9 +118,8 @@ Instead of hardcoding a specific virtual environment, you can use this **portabl
 
 This uses whichever `python3` is currently active in your environment or shell.
 
-> 🧠 Tip: If you're using a virtualenv, just activate it before running the script. This keeps the script portable and friendly across machines.
-
----
+> 🧠 Tip: If you're using a virtualenv, just activate it before running the
+script. This keeps the script portable and friendly across machines.
 
 ## 🧩 Requirements
 
@@ -138,27 +133,59 @@ Install them manually if needed:
 pip install openai pyperclip
 ```
 
----
-
 ## 🛡️ Safety Note
 
-In `"command"` mode, GPT outputs are parsed and copied — but **you are responsible for what you run**. Use caution, especially when piping to shell.
-
----
+In `"command"` mode, GPT outputs are parsed and copied — but
+**you are responsible for what you run**. Use caution, especially
+when piping to shell.
 
 ## 📘 License
 
 MIT License — free for personal and professional use.
 
----
+## 🙋‍♂️ Why not just use ChatGPT or `curl`?
 
-## 🙋‍♂️ Why use this?
+### 📌 Imagine This
 
-1. Why structure GPT output into summary/script/follow-ups?
-2. Why separate `"command"` mode from normal prompts?
-3. Why not just use ChatGPT or curl? This is faster, keyboard-friendly, and integrates easily into dev workflows.
+You're working on a CLI tool, and you want to quickly:
 
+- Recall a Docker command  
+- Generate a one-liner Python script  
+- Fix a syntax error  
+- Pull in a curl snippet with headers
+
+You could alt-tab to ChatGPT, type it, wait for the web UI, and copy-paste. Or you could run:
+
+```bash
+gpt "command restart nginx"
 ```
 
+And get the exact command copied to your clipboard — without ever leaving your terminal.
+
+### 💬 Why `gpt-cli` over ChatGPT?
+
+- **Speed:** One keystroke away. Zero context switching.
+- **Minimal output:** Structured into summary, script, and follow-ups — no extra fluff or markdown.
+- **Works offline(ish):** Doesn’t require a browser or GUI session — just your terminal and an API key.
+- **Context aware for CLI:** Built for terminal workflows — returns real commands, copies to clipboard, and optionally runs them.
+- **Customizable prompts:** You control the prompt structure, command safety, and formatting — unlike the web UI.
+
+## Cost-effective, too
+
+Since it's meant to be short and sweet, you can use it for quick tasks without
+burning through your OpenAI API credits.
+
+## 🧠 Summary
+
+`gpt-cli` isn’t just a wrapper — it’s a **workflow upgrade**:
+
+- It's fast.
+- It's structured.
+- It's made for your terminal.
+
+You get **the right kind of answer**, in the **right context**, right when
+you need it.
+
 ## 🙌 Contributing
+
 Contributions are welcome! Please open an issue or submit a pull request if you have ideas for improvements or new features.
